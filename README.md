@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Authentication Project
 
-## Getting Started
+A Next.js application demonstrating authentication implementation using NextAuth.js v5 with GitHub OAuth provider and Prisma as the database adapter.
 
-First, run the development server:
+## Features
+
+- GitHub OAuth Authentication
+- Protected Routes
+- User Profile Information
+- Persistent Sessions with Prisma
+- Responsive UI with Tailwind CSS
+
+## Tech Stack
+
+- Next.js 15.3.1
+- NextAuth.js 5.0 (Beta)
+- Prisma with PostgreSQL
+- TypeScript
+- Tailwind CSS
+- React 19
+
+## Prerequisites
+
+- Node.js
+- PostgreSQL database
+- GitHub OAuth credentials
+
+## Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+DATABASE_URL="your_postgresql_connection_string"
+GITHUB_ID="your_github_oauth_app_id"
+GITHUB_SECRET="your_github_oauth_app_secret"
+AUTH_SECRET="your_random_secret_key"
+```
+
+## Installation
+
+1. Clone the repository
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Set up the database:
+
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/src/app` - Next.js application routes and components
+- `/src/auth.ts` - NextAuth configuration
+- `/src/middleware.ts` - Route protection middleware
+- `/prisma` - Database schema and configurations
+- `/components` - Reusable React components
 
-## Learn More
+## Features Implementation
 
-To learn more about Next.js, take a look at the following resources:
+### Authentication Flow
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Sign in with GitHub
+- Protected routes with middleware
+- Session management
+- User profile information display
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Protected Routes
 
-## Deploy on Vercel
+- `/user-info` - Displays authenticated user information
+- Automatic redirection to sign-in for unauthenticated users
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Feel free to submit issues and pull requests.
+
+## License
+
+This project is open source and available under the MIT license.
